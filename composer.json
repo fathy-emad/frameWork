@@ -1,0 +1,9 @@
+{
+    "name": "fathy/frame-work",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
