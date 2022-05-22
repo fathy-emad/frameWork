@@ -30,6 +30,9 @@ class siteController extends controller
         echo "</pre>";
         exit();
 
+
+
+
         return "<pre>" . print_r($body) . "</pre>";
     }
 
