@@ -2,8 +2,6 @@
 
 namespace app\core;
 
-use http\Params;
-
 class Router
 {
     public Request $request;
@@ -48,7 +46,7 @@ class Router
            $callback[0] = new $callback[0]();
        }
 
-       return call_user_func($callback);
+       return call_user_func($callback,$this->request);
 
     }
 
