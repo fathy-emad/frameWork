@@ -11,4 +11,3 @@ $app->router->get('/contact',[siteController::class,'contact']);
 $app->router->post('/contact',[siteController::class,'handleContact']);
 
 $app->run();
-
