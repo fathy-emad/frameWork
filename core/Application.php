@@ -20,14 +20,17 @@ class Application
         $this->router = new Router($this->request, $this->response);
     }
 
-    public function getController()
-    {
-        return $this->controller;
+
+    public function __get($property) {
+        if (property_exists($this, $property)) {
+            return $this->{$property};
+        }
     }
 
-    public function setController(Controller $controller)
-    {
-       $this->controller = $controller;
+    public function __set($property, $value) {
+        if (property_exists($this, $property)) {
+            $this->{$property} = $value;
+        }
     }
 
     public function run()

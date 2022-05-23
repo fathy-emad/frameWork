@@ -1,13 +1,21 @@
 <h1>CREATE NEW USER</h1>
 <form method="post" action="">
-    <div class="mb-3">
-        <label for="firstName" class="form-label">First Name</label>
-        <input type="text" name="firstName" class="form-control" id="firstName">
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" value="<?=$model->firstName ?? ''?>">
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input type="text" name="lastName" class="form-control" id="lastName">
+    <div class="col">
+        <div class="form-group">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" name="lastName" class="form-control" id="lastName" value="<?=$model->lastName ?? ''?>">
+        </div>
     </div>
+
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" name="email" class="form-control" id="email">

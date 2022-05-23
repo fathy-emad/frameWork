@@ -47,7 +47,7 @@ class Router
            $callback[0] = Application::$application->controller;
        }
 
-       return call_user_func($callback,$this->request);
+       return call_user_func($callback, $this->request);
 
     }
 
@@ -70,6 +70,7 @@ class Router
     protected function renderOnlyView($view,$params = [])
     {
         foreach ($params AS $key => $param) { $$key = $param; }
+
         ob_start();
         include_once Application::$ROOT_DIR . '/views/' . $view . '.php';
         return ob_get_clean();
