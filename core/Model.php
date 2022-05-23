@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-abstract class Models
+abstract class Model
 {
     public const RULE_REQUIRED = 'required';
     public const RULE_EMAIL = 'email';
@@ -10,6 +10,7 @@ abstract class Models
     public const RULE_MAX = 'max';
     public const RULE_MATCH = 'match';
     public array $errors;
+
     public function loadData($postData)
     {
         foreach ($postData AS $name => $value){
@@ -71,6 +72,16 @@ abstract class Models
             self::RULE_MAX => 'this field max characters {max}',
             self::RULE_MATCH => 'this field dose not match with {match}'
         ];
+    }
+
+    public function hasError($attribute)
+    {
+        return $this->errors[$attribute] ?? false;
+    }
+
+    public function getFirstError($attribute)
+    {
+        return $this->errors[$attribute][0] ?? false;
     }
 
 }

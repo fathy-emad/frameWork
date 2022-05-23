@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-class controller
+class Controller
 {
     public string $layout = 'main';
 
@@ -13,6 +13,7 @@ class controller
 
     public function render($view, $params = [])
     {
+
         return Application::$application->router->renderView($view, $params);
     }
 

@@ -2,9 +2,9 @@
 
 namespace app\models;
 
-use app\core\Models;
+use app\core\Model;
 
-class registerModel extends Models
+class RegisterModel extends Model
 {
     public string $firstName;
     public string $lastName;

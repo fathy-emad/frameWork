@@ -20,7 +20,6 @@ class Application
         $this->router = new Router($this->request, $this->response);
     }
 
-
     public function __get($property) {
         if (property_exists($this, $property)) {
             return $this->{$property};

@@ -5,14 +5,16 @@
         <div class="col">
             <div class="form-group">
                 <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" value="<?=$model->firstName ?? ''?>">
+                <input type="text" class="form-control" id="firstName" name="firstName" value="<?=$model->firstName ?? ''?>"
+                    <?php echo ($model->errors["firstName"] ? " is-invalid" : "");?>>
             </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="form-group">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" name="lastName" class="form-control" id="lastName" value="<?=$model->lastName ?? ''?>">
+        <div class="col">
+            <div class="form-group">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" name="lastName" class="form-control <?php echo (!$model->errors["lastName"] ? " is-invalid" : "");?>" id="lastName" value="<?=$model->lastName ?? ''?>">
+<!--                <div class="invalid-feedback">--><?//=$model->getFirstError('lastName')?><!--</div>-->
+            </div>
         </div>
     </div>
 

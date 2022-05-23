@@ -2,11 +2,11 @@
 
 namespace app\controllers;
 
-use app\core\controller;
+use app\core\Controller;
 use app\core\Request;
-use app\models\registerModel;
+use app\models\RegisterModel;
 
-class authController extends controller
+class AuthController extends Controller
 {
     public function login()
     {
@@ -16,17 +16,18 @@ class authController extends controller
 
     public function register(Request $request)
     {
-        $registerModel = new registerModel();
+        $registerModel = new RegisterModel();
 
         if ($request->isPost()){
             $registerModel->loadData($request->getBody());
 
-            if ($registerModel->validate()){
-                return $this->render("register",[
-                    'model' => $registerModel,
-                ]);
+            if ($registerModel->validate() && $registerModel->register()){
+                return 'valid';
             }
 
+            return $this->render("register",[
+                'model' => $registerModel,
+            ]);
         }
 
         $this->setLayout("auth");
